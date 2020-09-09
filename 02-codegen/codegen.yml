@@ -1,0 +1,14 @@
+overwrite: true
+schema: ./src/server.ts
+generates:
+  src/generated/resolver-types.ts:
+    plugins:
+      - add:
+          content: "/* eslint-disable */\n/* AUTO GENERATED, DO NOT EDIT */"
+      - typescript
+      - typescript-resolvers
+    config:
+      maybeValue: T | null
+      namingConvention:
+        enumValues: keep
+      useIndexSignature: true
