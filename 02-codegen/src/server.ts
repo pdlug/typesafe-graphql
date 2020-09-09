@@ -17,7 +17,7 @@ const typeDefs = gql`
   }
 `;
 
-const books = [
+const BOOK_DATA = [
   {
     title: "Harry Potter and the Chamber of Secrets",
     author: "J.K. Rowling",
@@ -30,7 +30,7 @@ const books = [
 
 const resolvers: Resolvers = {
   Query: {
-    books: () => books,
+    books: () => BOOK_DATA,
   },
 };
 

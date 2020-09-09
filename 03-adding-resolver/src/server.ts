@@ -18,7 +18,7 @@ const typeDefs = gql`
   }
 `;
 
-const books = [
+const BOOK_DATA = [
   {
     title: "Harry Potter and the Chamber of Secrets",
     author: "J.K. Rowling",
@@ -29,12 +29,14 @@ const books = [
   },
 ];
 
+const books: QueryResolvers["books"] = () => BOOK_DATA;
+
 const book: QueryResolvers["book"] = (_root, { title }, _ctx) =>
-  books.find((b) => b.title === title) ?? null;
+  BOOK_DATA.find((b) => b.title === title) ?? null;
 
 const resolvers: Resolvers & { Query: Required<Resolvers["Query"]> } = {
   Query: {
-    books: () => books,
+    books,
     book,
   },
 };

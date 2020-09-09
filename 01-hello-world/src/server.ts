@@ -20,7 +20,7 @@ type Book = {
   author?: string;
 };
 
-const books: Book[] = [
+const BOOK_DATA: Book[] = [
   {
     title: "Harry Potter and the Chamber of Secrets",
     author: "J.K. Rowling",
@@ -29,20 +29,16 @@ const books: Book[] = [
     title: "Jurassic Park",
     author: "Michael Crichton",
   },
-  {
-    author: "None",
-  },
 ];
 
 const resolvers = {
   Query: {
-    books: () => books,
+    books: () => BOOK_DATA,
   },
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
-// The `listen` method launches a web server.
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });
